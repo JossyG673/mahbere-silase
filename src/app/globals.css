@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Primary: Deep Burgundy / Wine ── */
+  --color-wine: #6b1d3a;
+  --color-wine-light: #8b2f52;
+  --color-wine-dark: #4a0e25;
+  --color-wine-50: #fdf2f6;
+  --color-wine-100: #f9e0ea;
+
+  /* ── Secondary: Forest Teal ── */
+  --color-teal: #1a5c4e;
+  --color-teal-light: #247a67;
+  --color-teal-dark: #0f3d34;
+  --color-teal-50: #effaf7;
+
+  /* ── Accent: Warm Gold / Amber ── */
+  --color-amber: #c9952c;
+  --color-amber-light: #e4b84a;
+  --color-amber-dark: #9e7520;
+  --color-amber-50: #fefaee;
+
+  /* ── Neutrals ── */
+  --color-slate: #1e2328;
+  --color-slate-light: #4b5563;
+  --color-ivory: #faf9f6;
+  --color-linen: #f3efe9;
+  --color-sand: #e8e2d9;
+
+  /* ── Semantic ── */
+  --color-success: #16a34a;
+  --color-warning: #ea850b;
+  --color-danger: #dc2626;
+  --color-info: #0284c7;
+}
+
+@layer base {
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-amber);
+    color: var(--color-wine-dark);
+  }
+}
+
+@layer utilities {
+  /* ── Gradients ── */
+  .gradient-wine {
+    background: linear-gradient(135deg, #6b1d3a 0%, #8b2f52 50%, #6b1d3a 100%);
+  }
+  .gradient-teal {
+    background: linear-gradient(135deg, #1a5c4e 0%, #247a67 50%, #1a5c4e 100%);
+  }
+  .gradient-amber {
+    background: linear-gradient(135deg, #c9952c 0%, #e4b84a 50%, #c9952c 100%);
+  }
+  .gradient-hero {
+    background: linear-gradient(
+      160deg,
+      #2a0f19 0%,
+      #4a0e25 15%,
+      #6b1d3a 40%,
+      #1a5c4e 80%,
+      #0f3d34 100%
+    );
+  }
+  .gradient-hero-warm {
+    background: linear-gradient(
+      135deg,
+      #4a0e25 0%,
+      #6b1d3a 35%,
+      #8b2f52 65%,
+      #6b1d3a 100%
+    );
+  }
+  .gradient-card {
+    background: linear-gradient(145deg, #ffffff 0%, #faf9f6 100%);
+  }
+  .text-gradient-amber {
+    background: linear-gradient(135deg, #c9952c, #e4b84a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Shadows ── */
+  .card-shadow {
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.06),
+      0 4px 16px rgba(0, 0, 0, 0.04);
+  }
+  .card-shadow-hover {
+    box-shadow:
+      0 8px 25px rgba(107, 29, 58, 0.1),
+      0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+  .card-shadow-lg {
+    box-shadow:
+      0 10px 40px rgba(107, 29, 58, 0.12),
+      0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  /* ── Animations ── */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+  .animate-slide-down {
+    animation: slideDown 0.4s ease-out;
+  }
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* ── Glass ── */
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ── Skeleton loading ── */
+.skeleton {
+  background: linear-gradient(90deg, #e8e2d9 25%, #f3efe9 50%, #e8e2d9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f3efe9; }
+::-webkit-scrollbar-thumb { background: #c9952c; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9e7520; }
+
+/* ── Ethiopian-style decorative line ── */
+.eth-line {
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #c9952c 15%,
+    #6b1d3a 35%,
+    #1a5c4e 50%,
+    #6b1d3a 65%,
+    #c9952c 85%,
+    transparent 100%
+  );
+}
+
+/* ── Focus ring ── */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+}
